@@ -57,7 +57,7 @@ connect router to pc
 open 192.168.1.1
 flash OpenWrt firmware from breed.
 
-Done.
+Done. :)
 
 When installing OpenWrt on the Xiaomi 3C, there are several options. **Note that there isn't a stable release for it yet, which means that the firmware may be unstable**:
 
