@@ -52,52 +52,18 @@ http://192.168.31.1/cgi-bin/luci/;stok=<stok>/api/xqsystem/check_rom_update
 
  mtd_write write /tmp/breed-mt7688-reset38.bin Bootloader
 ```
+reset using reset button 
+connect router to pc 
+open 192.168.1.1
+flash OpenWrt firmware from breed.
 
-When installing OpenWrt on the Xiaomi 4A Gigabit, there are several options. **Note that there isn't a stable release for it yet, which means that the firmware may be unstable**:
+Done.
+
+When installing OpenWrt on the Xiaomi 3C, there are several options. **Note that there isn't a stable release for it yet, which means that the firmware may be unstable**:
+
 
 * One of the images listed in the [official OpenWrt wiki page](https://openwrt.org/inbox/toh/xiaomi/xiaomi_mi_router_4a_gigabit_edition)
 
-* Build your own image with `imagebuilder`, using the latest source code on `master`:
-
-  ```
-  docker pull openwrtorg/imagebuilder:ramips-mt7621-master
-  docker run --rm -v "$(pwd)"/bin/:/home/build/openwrt/bin -it openwrtorg/imagebuilder:ramips-mt7621-master
-  make PROFILE=xiaomi_mir3g-v2 image
-  ```
-
-* Wait until there is a stable release of OpenWrt
-
-If **after reading above text** you still want to proceed, after login to the router through telnet run the following commands:
-
-```shell
-cd /tmp
-curl https://raw.githubusercontent.com/acecilia/OpenWRTInvasion/master/firmwares/OpenWrt/06-06-2020/openwrt-ramips-mt7621-xiaomi_mir3g-v2-squashfs-sysupgrade.bin --output firmware.bin # Put here the URL you want to use to download the firmware
-./busybox sha256sum firmware.bin # Verify the firmware checksum before flashing, very important to avoid bricking your device!
-mtd -e OS1 -r write firmware.bin OS1 # Install OpenWrt
-```
-
-This will install the snapshot version of OpenWrt (without Luci). You can now use ssh to connect to the router (and install Luci if you prefer it).
-
-### Performance:
-
-Some users have reported worse WIFI performance in OpenWrt than in the stock firmware. See the following links:
-
-* [OpenWrt forum](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685/430)
-* [OpenWrt forum](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685/431)
-* [OpenWrt forum](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685/451)
-
-## For more info and support go to:
-
-* [OpenWrt forum thread](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685)
-* [Slack workspace](https://join.slack.com/t/openwrt-workspace/shared_invite/zt-cz2m5uf4-Q8wbP_LKggOy9B7IQyaqfA)
-
-## If you brick your device
-
-You can find solutions in the following links:
-
-* User [albertcp](https://forum.openwrt.org/u/albertcp) posted a very detailed guide: [OpenWrt forum](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685/402)
-* User [micky0867](https://forum.openwrt.org/u/micky0867) has some more comments about the topic: [OpenWrt forum](https://forum.openwrt.org/t/xiaomi-mi-router-4a-gigabit-edition-r4ag-r4a-gigabit-fully-supported-but-requires-overwriting-spi-flash-with-programmer/36685/391)
-* User [hoddy](https://forum.openwrt.org/u/hoddy) created a [video tutorial](https://www.youtube.com/watch?v=VxzEvdDWU_s)
 
 ## Acknowledgments
 
