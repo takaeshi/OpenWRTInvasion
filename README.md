@@ -33,19 +33,25 @@ The script also starts an ftp server at port 21, so you can get access to the fi
 
 This repository contains the following firmwares:
 
-* Official Xiaomi - `2.14.45` - in Chinese. SHA256: `a3db7f937d279cf38c2a3bec09772d65`
-  * URL in this repository: https://github.com/acecilia/OpenWRTInvasion/raw/master/firmwares/stock/miwifi_r4a_firmware_72d65_2.28.62.bin
-* Official Xiaomi - `2.8.51_INT` - in English. MD5: `9c4a60addaad76dc13b6df6b4ac03233`
-  * URL in this repository: https://github.com/acecilia/OpenWRTInvasion/raw/master/firmwares/stock/miwifi_r4a_all_03233_3.0.24_INT.bin
-  * URL in the official Xiaomi site: http://cdn.awsde0-fusion.fds.api.mi-img.com/xiaoqiang/rom/r4a/miwifi_r4a_all_03233_3.0.24_INT.bin
-
+* Official Xiaomi - `2.14.45` - in Chinese. 
+  * URL in this repository: https://github.com/takaeshi/mi-router-3c-OpenWRT/raw/master/firmwares/stock/miwifi_r3l_firmware_0b49f_2.14.45.bin
+* Official Xiaomi - `2.8.51_INT` - in English. 
+  * URL in this repository: https://github.com/takaeshi/mi-router-3c-OpenWRT/raw/master/firmwares/stock/miwifi_r3l_all_23e37_2.8.51_INT.bin
+ 
 If you have a pending update in your Xiaomi stock firmware, you can check its md5 hash and the download url by navigating to:
 
 ```
 http://192.168.31.1/cgi-bin/luci/;stok=<stok>/api/xqsystem/check_rom_update
 ```
 
-### Install OpenWrt
+### Install breed
+ Installation instructions via SSH: 
+ 
+ ```
+ wget -P /tmp  https://breed.hackpascal.net/breed-mt7688-reset38.bin
+
+ mtd_write write /tmp/breed-mt7688-reset38.bin Bootloader
+```
 
 When installing OpenWrt on the Xiaomi 4A Gigabit, there are several options. **Note that there isn't a stable release for it yet, which means that the firmware may be unstable**:
 
